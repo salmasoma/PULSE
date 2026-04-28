@@ -1,0 +1,46 @@
+name: PULSEOnDevice
+options:
+  deploymentTarget:
+    iOS: "17.0"
+packages:
+  ZIPFoundation:
+    url: https://github.com/weichsel/ZIPFoundation.git
+    from: 0.9.19
+  PULSEMoondreamVendor:
+    path: Vendor/PULSEMoondreamVendor
+targets:
+  PULSEOnDevice:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    dependencies:
+      - package: ZIPFoundation
+      - package: PULSEMoondreamVendor
+    sources:
+      - path: PULSEOnDevice/App
+      - path: PULSEOnDevice/Inference
+      - path: PULSEOnDevice/Models
+      - path: PULSEOnDevice/Views
+      - path: PULSEOnDevice/Resources/Assets.xcassets
+        buildPhase: resources
+      - path: PULSEOnDevice/Resources/LaunchScreen.storyboard
+        buildPhase: resources
+      - path: PULSEOnDevice/Resources/Models
+        buildPhase: resources
+        type: folder
+      - path: PULSEOnDevice/Resources/Reasoning
+        buildPhase: resources
+        type: folder
+    settings:
+      base:
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        EXCLUDED_ARCHS[sdk=iphonesimulator*]: x86_64
+        PRODUCT_BUNDLE_IDENTIFIER: com.salmahassan.pulse.ondevice
+        PRODUCT_NAME: PULSEOnDevice
+        PULSE_LOCAL_REASONING_MODEL_RESOURCE: ""
+        SWIFT_OBJC_BRIDGING_HEADER: PULSEOnDevice/PULSEOnDevice-Bridging-Header.h
+        SWIFT_VERSION: "5.10"
+        INFOPLIST_FILE: PULSEOnDevice/Info.plist
+        TARGETED_DEVICE_FAMILY: "1,2"
+        CODE_SIGN_STYLE: Automatic

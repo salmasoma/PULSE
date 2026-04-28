@@ -1,0 +1,112 @@
+# OS / editor
+.DS_Store
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments
+.venv*/
+venv/
+
+# Runtime and training artifacts
+Datasets/
+Distilled/
+runs/
+exports/
+reports/
+outputs/
+tmp/
+external_models/
+*.pt
+*.pth
+*.safetensors
+*.profraw
+
+# iOS generated assets and staged model payloads
+ios/PULSEOnDevice/PULSEOnDevice.xcodeproj/
+ios/PULSEOnDevice/PULSEOnDevice.xcworkspace/
+ios/PULSEOnDevice/Vendor/PULSEMoondreamVendor/.swiftpm/
+ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/**/*.mlmodelc/
+ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/**/*.mlpackage/
+ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/**/*.bin
+ios/PULSEOnDevice/PULSEOnDevice/Resources/Reasoning/*.gguf
+ios/PULSEOnDevice/PULSEOnDevice/Resources/Reasoning/moondream2_reasoning_manifest.json
+
+# Keep lightweight resource metadata
+!ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/README.md
+!ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/pulse_coreml_manifest.json
+!ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/fetal_specialists_manifest.json
+!ios/PULSEOnDevice/PULSEOnDevice/Resources/Reasoning/README.md
+!ios/PULSEOnDevice/PULSEOnDevice/Resources/Reasoning/local_vqa_manifest.json
+
+# Research collateral not intended for the code repository
+paper/
+docs/
+*.pptx
+/ios/USPromptApp/
+/lingshu_distill/
+/CLUSTER_*.md
+/COPY_PASTE_COMMANDS.md
+/FINAL_FIX_GUIDE.txt
+/GPU_QUICKSTART.txt
+/LINGSHU_IMPLEMENTATION_SUMMARY.md
+/LINGSHU_INTEGRATION.md
+/SIMPLE_QUICKSTART.txt
+/TRAINING_README.md
+/TRANSFER_CHECKLIST.txt
+/method.txt
+
+# Local helper scripts outside the curated repo surface
+/distill_*.py
+/simple_train.py
+/train.py
+/train_final.py
+/train_lingshu_full.py
+/train_real.py
+/run_agent_server_lx.py
+/lx.sh
+/submit_pbs.sh
+/submit_slurm.sh
+/submit_slurm_multi_gpu.sh
+
+# Original large local demo capture stays outside the repo; use assets/demo.mp4 instead
+/demo.mp4
+
+# Temporary asset-generation scratch
+assets/tmp_gif/
+
+# Optional dependency snapshots not used by the curated repo
+/requirements-echovlm.txt
+/requirements-moondream2-desktop.txt
+
+# Experimental one-off scripts not kept in the cleaned repository
+/scripts/add_speaker_notes_*.py
+/scripts/app_us_runtime.py
+/scripts/build_*.py
+/scripts/build_*.sh
+/scripts/create_*.py
+/scripts/download_echovlm_v2.py
+/scripts/download_gemma3n_e2b.py
+/scripts/download_moondream2_mobile_assets.py
+/scripts/download_radiology_infer_mini_mobile_assets.py
+/scripts/generate_ios_brand_assets.py
+/scripts/infer_lingshu_vlm.py
+/scripts/run_app_us_cli.py
+/scripts/run_app_us_server.py
+/scripts/run_echovlm_*.py
+/scripts/run_lingshu_distill.py
+/scripts/run_mobilevlm_casebook.py
+/scripts/run_moondream2_desktop.py
+/scripts/stage_gemma3n_reasoning_bundle.py
+/scripts/stage_moondream2_reasoning_assets.py
+/scripts/stage_radiology_infer_mini_reasoning_assets.py
+/scripts/test_gemma3n_litertlm_vlm.py
+/scripts/test_lingshu_models.py
+/scripts/test_moondream2_output.py
+/scripts/test_radiology_infer_mini_output.py

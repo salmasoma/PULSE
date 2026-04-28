@@ -1,0 +1,10 @@
+{
+  "provider": "medix_r1",
+  "variant": "2B Q4_K_S",
+  "modality": "vision-language",
+  "text_model_filename": "MediX-R1-2B.Q4_K_S.gguf",
+  "mmproj_filename": "mmproj-MediX-R1-2b-F16.gguf",
+  "runtime_supported": true,
+  "runtime_target": "llama.cpp + libmtmd iOS bridge",
+  "note": "These assets stage MediX-R1 for on-device ultrasound VQA. If the VLM cannot initialize on the device, the app falls back to the grounded local composer."
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PULSE Agent</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="background-glow background-glow-a"></div>
+    <div class="background-glow background-glow-b"></div>
+
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">PULSE</p>
+        <h1>Point-of-care Ultrasound via Lightweight Scalable Embedded TinyML</h1>
+        <p class="hero-text">
+          Upload an ultrasound image, add an optional clinical prompt, and let the agent triage,
+          plan specialist tools, run available models, and return a structured report.
+        </p>
+      </div>
+      <div class="hero-card">
+        <div class="stat-block">
+          <span class="stat-label">Server</span>
+          <strong id="health-status">Loading</strong>
+        </div>
+        <div class="stat-grid">
+          <div class="mini-stat">
+            <span>Tasks</span>
+            <strong id="health-tasks">-</strong>
+          </div>
+          <div class="mini-stat">
+            <span>Ready</span>
+            <strong id="health-ready">-</strong>
+          </div>
+          <div class="mini-stat">
+            <span>Checkpoints</span>
+            <strong id="health-checkpoints">-</strong>
+          </div>
+          <div class="mini-stat">
+            <span>Device</span>
+            <strong id="health-device">-</strong>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel intake-panel">
+        <div class="panel-heading">
+          <p class="section-kicker">Intake</p>
+          <h2>Upload Case</h2>
+        </div>
+
+        <form id="analysis-form" class="analysis-form">
+          <label class="field">
+            <span>Primary ultrasound image</span>
+            <input type="file" name="image" accept="image/*" required />
+          </label>
+
+          <label class="field">
+            <span>Prompt</span>
+            <textarea
+              name="prompt"
+              rows="4"
+              placeholder="Example: Thyroid ultrasound. Detect a nodule, segment it if possible, and summarize malignant-vs-benign evidence."
+            ></textarea>
+          </label>
+
+          <div class="field-grid">
+            <fieldset class="field checkbox-fieldset">
+              <legend>Optional focus</legend>
+              <p class="fieldset-note">Leave all unchecked to run every available model in the automatically detected domain.</p>
+              <label><input type="checkbox" name="task_hint" value="classification" /> Classification</label>
+              <label><input type="checkbox" name="task_hint" value="detection" /> Detection</label>
+              <label><input type="checkbox" name="task_hint" value="segmentation" /> Segmentation</label>
+              <label><input type="checkbox" name="task_hint" value="measurement" /> Measurement</label>
+              <label><input type="checkbox" name="task_hint" value="multimodal" /> Multimodal</label>
+            </fieldset>
+            <div class="focus-note-card">
+              <span>Automatic routing</span>
+              <strong>Domain is inferred from the trained models, not selected manually.</strong>
+            </div>
+          </div>
+
+          <div class="field-grid">
+            <label class="field">
+              <span>Optional pixel spacing (mm/pixel)</span>
+              <input
+                type="number"
+                name="pixel_spacing_mm"
+                min="0"
+                step="0.0001"
+                placeholder="Used for physical FetalNet measurements when available"
+              />
+            </label>
+
+            <label class="field">
+              <span>Optional CDFI image</span>
+              <input type="file" name="cdfi" accept="image/*" />
+            </label>
+
+            <label class="field">
+              <span>Optional elastography image</span>
+              <input type="file" name="elastic" accept="image/*" />
+            </label>
+          </div>
+
+          <div class="field-grid">
+            <fieldset class="field checkbox-fieldset">
+              <legend>Reasoned interpretation</legend>
+              <p class="fieldset-note">
+                Generate a clinician-facing reasoning report after PULSE finishes using the secured server-side reasoning service when available.
+              </p>
+              <label><input type="checkbox" name="enable_reasoning" checked /> Generate reasoned report</label>
+            </fieldset>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" id="submit-button">Run Agent</button>
+            <p id="submit-status" class="submit-status">Waiting for input.</p>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel result-panel">
+        <div class="panel-heading">
+          <p class="section-kicker">Response</p>
+          <h2>Agent Report</h2>
+        </div>
+        <div id="result-summary" class="result-summary empty-state">
+          Run an analysis to see the triage, plan, findings, and generated artifacts.
+        </div>
+        <div id="reasoned-report" class="reasoned-report empty-state">
+          Enable reasoning to generate a clinician-facing interpretation after the structured PULSE report.
+        </div>
+        <div id="result-details" class="result-details"></div>
+      </section>
+    </main>
+
+    <section class="panel catalog-panel">
+      <div class="panel-heading">
+        <p class="section-kicker">Coverage</p>
+        <h2>Specialist Task Catalog</h2>
+      </div>
+      <div class="catalog-scroll">
+        <table class="task-table">
+          <thead>
+            <tr>
+              <th>Domain</th>
+              <th>Task</th>
+              <th>Type</th>
+              <th>Status</th>
+              <th>Checkpoint</th>
+            </tr>
+          </thead>
+          <tbody id="task-table-body">
+            <tr>
+              <td colspan="5">Loading task inventory...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>

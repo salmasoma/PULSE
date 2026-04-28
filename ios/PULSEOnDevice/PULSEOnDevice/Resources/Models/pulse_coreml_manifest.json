@@ -1,0 +1,546 @@
+{
+  "name": "PULSE Core ML Export Manifest",
+  "source_model_root": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled",
+  "model_count": 17,
+  "exported_count": 17,
+  "skipped_count": 0,
+  "variants": [
+    "student"
+  ],
+  "models": [
+    {
+      "task_id": "abdominal/anomaly_detection",
+      "output_name": "abdominal_anomaly_detection",
+      "domain": "abdominal",
+      "title": "Abdominal anomaly detection",
+      "task_type": "classification",
+      "labels": [
+        "normal",
+        "abnormal"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "logits",
+      "input_names": [
+        "image"
+      ],
+      "output_names": [
+        "logits"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/abdominal_anomaly_detection/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/abdominal_anomaly_detection.mlpackage",
+      "exported": true,
+      "reason": ""
+    },
+    {
+      "task_id": "abdominal/organ_classification",
+      "output_name": "abdominal_organ_classification",
+      "domain": "abdominal",
+      "title": "Abdominal organ classification",
+      "task_type": "classification",
+      "labels": [
+        "AA",
+        "GB",
+        "Hepatic",
+        "Kidney",
+        "Liver",
+        "Ovaries",
+        "Pancreas",
+        "Portal",
+        "Spleen",
+        "UB+prostrate+uterous+cervix"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "logits",
+      "input_names": [
+        "image"
+      ],
+      "output_names": [
+        "logits"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/abdominal_organ_classification/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/abdominal_organ_classification.mlpackage",
+      "exported": true,
+      "reason": ""
+    },
+    {
+      "task_id": "breast/lesion_classification",
+      "output_name": "breast_lesion_classification",
+      "domain": "breast",
+      "title": "Breast lesion classification",
+      "task_type": "classification",
+      "labels": [
+        "normal",
+        "benign",
+        "malignant"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "logits",
+      "input_names": [
+        "image"
+      ],
+      "output_names": [
+        "logits"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/breast_lesion_classification/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/breast_lesion_classification.mlpackage",
+      "exported": true,
+      "reason": ""
+    },
+    {
+      "task_id": "breast/lesion_segmentation",
+      "output_name": "breast_lesion_segmentation",
+      "domain": "breast",
+      "title": "Breast lesion segmentation",
+      "task_type": "segmentation",
+      "labels": [
+        "lesion"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "binary_mask_logits",
+      "input_names": [
+        "image"
+      ],
+      "output_names": [
+        "segmentation_logits"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/breast_lesion_segmentation/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/breast_lesion_segmentation.mlpackage",
+      "exported": true,
+      "reason": ""
+    },
+    {
+      "task_id": "cardiac/butterfly_cardiac_screening",
+      "output_name": "cardiac_butterfly_cardiac_screening",
+      "domain": "cardiac",
+      "title": "Butterfly cardiac screening proxy",
+      "task_type": "classification",
+      "labels": [
+        "non_cardiac",
+        "cardiac"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "logits",
+      "input_names": [
+        "image"
+      ],
+      "output_names": [
+        "logits"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/cardiac_butterfly_cardiac_screening/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/cardiac_butterfly_cardiac_screening.mlpackage",
+      "exported": true,
+      "reason": ""
+    },
+    {
+      "task_id": "cardiac/butterfly_view_classification",
+      "output_name": "cardiac_butterfly_view_classification",
+      "domain": "cardiac",
+      "title": "Butterfly 9-view classification",
+      "task_type": "classification",
+      "labels": [
+        "2ch",
+        "4ch",
+        "bladder",
+        "carotid",
+        "ivc",
+        "lungs",
+        "morisons_pouch",
+        "plax",
+        "thyroid"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "logits",
+      "input_names": [
+        "image"
+      ],
+      "output_names": [
+        "logits"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/cardiac_butterfly_view_classification/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/cardiac_butterfly_view_classification.mlpackage",
+      "exported": true,
+      "reason": ""
+    },
+    {
+      "task_id": "carotid/imt_measurement",
+      "output_name": "carotid_imt_measurement",
+      "domain": "carotid",
+      "title": "Carotid IMT measurement proxy",
+      "task_type": "measurement",
+      "labels": [],
+      "modalities": [
+        "image"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "scalar_regression",
+      "input_names": [
+        "image"
+      ],
+      "output_names": [
+        "value"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/carotid_imt_measurement/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/carotid_imt_measurement.mlpackage",
+      "exported": true,
+      "reason": ""
+    },
+    {
+      "task_id": "carotid/lumen_segmentation",
+      "output_name": "carotid_lumen_segmentation",
+      "domain": "carotid",
+      "title": "Carotid lumen segmentation",
+      "task_type": "segmentation",
+      "labels": [
+        "lumen"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "binary_mask_logits",
+      "input_names": [
+        "image"
+      ],
+      "output_names": [
+        "segmentation_logits"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/carotid_lumen_segmentation/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/carotid_lumen_segmentation.mlpackage",
+      "exported": true,
+      "reason": ""
+    },
+    {
+      "task_id": "kidney/anatomy_segmentation",
+      "output_name": "kidney_anatomy_segmentation",
+      "domain": "kidney",
+      "title": "Kidney anatomy segmentation",
+      "task_type": "segmentation",
+      "labels": [
+        "capsule",
+        "central_echo_complex",
+        "medulla",
+        "cortex"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "mask_class_logits",
+      "input_names": [
+        "image"
+      ],
+      "output_names": [
+        "segmentation_logits"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/kidney_anatomy_segmentation/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/kidney_anatomy_segmentation.mlpackage",
+      "exported": true,
+      "reason": ""
+    },
+    {
+      "task_id": "kidney/normal_abnormal_classification",
+      "output_name": "kidney_normal_abnormal_classification",
+      "domain": "kidney",
+      "title": "Kidney normal/abnormal classification",
+      "task_type": "classification",
+      "labels": [
+        "normal",
+        "abnormal"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "logits",
+      "input_names": [
+        "image"
+      ],
+      "output_names": [
+        "logits"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/kidney_normal_abnormal_classification/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/kidney_normal_abnormal_classification.mlpackage",
+      "exported": true,
+      "reason": ""
+    },
+    {
+      "task_id": "liver/pathology_classification",
+      "output_name": "liver_pathology_classification",
+      "domain": "liver",
+      "title": "Liver pathology classification",
+      "task_type": "classification",
+      "labels": [
+        "benign",
+        "malignant",
+        "normal"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "logits",
+      "input_names": [
+        "image"
+      ],
+      "output_names": [
+        "logits"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/liver_pathology_classification/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/liver_pathology_classification.mlpackage",
+      "exported": true,
+      "reason": ""
+    },
+    {
+      "task_id": "liver/segmentation",
+      "output_name": "liver_segmentation",
+      "domain": "liver",
+      "title": "Liver and lesion segmentation",
+      "task_type": "segmentation",
+      "labels": [
+        "liver",
+        "lesion"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "mask_class_logits",
+      "input_names": [
+        "image"
+      ],
+      "output_names": [
+        "segmentation_logits"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/liver_segmentation/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/liver_segmentation.mlpackage",
+      "exported": true,
+      "reason": ""
+    },
+    {
+      "task_id": "pcos/binary_classification",
+      "output_name": "pcos_binary_classification",
+      "domain": "pcos",
+      "title": "PCOS binary classification",
+      "task_type": "classification",
+      "labels": [
+        "negative",
+        "positive"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "logits",
+      "input_names": [
+        "image"
+      ],
+      "output_names": [
+        "logits"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/pcos_binary_classification/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/pcos_binary_classification.mlpackage",
+      "exported": true,
+      "reason": ""
+    },
+    {
+      "task_id": "system/domain_classification",
+      "output_name": "system_domain_classification",
+      "domain": "system",
+      "title": "Global domain routing classifier",
+      "task_type": "classification",
+      "labels": [
+        "cardiac",
+        "breast",
+        "thyroid",
+        "fetal",
+        "abdominal",
+        "liver",
+        "kidney",
+        "pcos",
+        "carotid"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "logits",
+      "input_names": [
+        "image"
+      ],
+      "output_names": [
+        "logits"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/system_domain_classification/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/system_domain_classification.mlpackage",
+      "exported": true,
+      "reason": ""
+    },
+    {
+      "task_id": "thyroid/benign_malignant_classification",
+      "output_name": "thyroid_benign_malignant_classification",
+      "domain": "thyroid",
+      "title": "Thyroid benign/malignant classification",
+      "task_type": "classification",
+      "labels": [
+        "benign",
+        "malignant"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "logits",
+      "input_names": [
+        "image"
+      ],
+      "output_names": [
+        "logits"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/thyroid_benign_malignant_classification/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/thyroid_benign_malignant_classification.mlpackage",
+      "exported": true,
+      "reason": ""
+    },
+    {
+      "task_id": "thyroid/multimodal_fusion_classification",
+      "output_name": "thyroid_multimodal_fusion_classification",
+      "domain": "thyroid",
+      "title": "Thyroid multimodal fusion classification",
+      "task_type": "multimodal",
+      "labels": [
+        "benign",
+        "malignant"
+      ],
+      "modalities": [
+        "bmode",
+        "cdfi",
+        "elastic"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "logits",
+      "input_names": [
+        "bmode",
+        "cdfi",
+        "elastic"
+      ],
+      "output_names": [
+        "logits"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/thyroid_multimodal_fusion_classification/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/thyroid_multimodal_fusion_classification.mlpackage",
+      "exported": true,
+      "reason": ""
+    },
+    {
+      "task_id": "thyroid/nodule_detection",
+      "output_name": "thyroid_nodule_detection",
+      "domain": "thyroid",
+      "title": "Thyroid single-nodule detection",
+      "task_type": "detection",
+      "labels": [
+        "nodule"
+      ],
+      "modalities": [
+        "image"
+      ],
+      "image_size": 224,
+      "runtime_enabled": true,
+      "output_semantics": "objectness_cxcywh",
+      "input_names": [
+        "image"
+      ],
+      "output_names": [
+        "detection_head"
+      ],
+      "source_checkpoint": "/Users/salma.hassan/Ultrasound_Project/Distilled/distilled/thyroid_nodule_detection/student_best.pt",
+      "model_variant": "student",
+      "student_width": 12,
+      "coreml_path": "/Users/salma.hassan/Ultrasound_Project/ios/PULSEOnDevice/PULSEOnDevice/Resources/Models/thyroid_nodule_detection.mlpackage",
+      "exported": true,
+      "reason": ""
+    }
+  ],
+  "external_specialists": [
+    {
+      "name": "MobileFetalCLIP",
+      "status": "planned",
+      "reason": "Requires a separate visual-encoder export path and bundled prompt embeddings."
+    },
+    {
+      "name": "FetalNet",
+      "status": "planned",
+      "reason": "Current upstream ConvLSTM + attention Y-Net should be evaluated separately for Core ML portability."
+    },
+    {
+      "name": "Roboflow fetal brain abnormality classifier",
+      "status": "not_on_device",
+      "reason": "Current integration is a hosted API model and must be replaced by a local checkpoint for offline iPhone inference."
+    }
+  ]
+}
