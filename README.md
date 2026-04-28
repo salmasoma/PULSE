@@ -1,8 +1,29 @@
-# PULSE: Point-of-care Ultrasound via Lightweight Scalable Embedded TinyML
+<div align="center">
 
-PULSE is a multi-domain ultrasound intelligence stack spanning supervised specialist training, model compression, structured runtime inference, and an on-device iPhone application.
+# PULSE
 
-This repository is intentionally code-only. It excludes datasets, trained checkpoints, exported Core ML bundles, staged GGUF reasoning models, papers, presentations, reports, and other working artifacts.
+### Point-of-care Ultrasound via Lightweight Scalable Embedded TinyML
+
+<p>
+  <img src="https://img.shields.io/badge/Domains-9-0EA5E9?style=for-the-badge" alt="9 domains" />
+  <img src="https://img.shields.io/badge/Runtime_Tasks-19-2563EB?style=for-the-badge" alt="19 runtime tasks" />
+  <img src="https://img.shields.io/badge/Deployment-iPhone-10B981?style=for-the-badge" alt="iPhone deployment" />
+  <img src="https://img.shields.io/badge/Design-Evidence--First-F59E0B?style=for-the-badge" alt="Evidence-first design" />
+</p>
+
+<p>
+  Multi-domain ultrasound intelligence spanning supervised specialist training,
+  TinyML compression, structured runtime inference, and a fully local iPhone app.
+</p>
+
+</div>
+
+> [!IMPORTANT]
+> This repository is intentionally code-only. It excludes datasets, trained checkpoints, exported Core ML bundles, staged GGUF reasoning models, papers, presentations, reports, and other working artifacts.
+
+## Overview
+
+PULSE is an end-to-end ultrasound stack built around one core principle: **specialist evidence is the primary clinical signal**. Models produce structured outputs such as labels, masks, boxes, and measurements first; reports and optional local VQA are layered on top of that evidence rather than replacing it with unconstrained image-only generation.
 
 ## Architecture
 
@@ -12,31 +33,26 @@ The pipeline is organized in four phases: multi-domain specialist training with 
 
 ## Demo
 
-<p align="center">
+<div align="center">
   <a href="assets/demo.mp4">
     <img src="assets/demo-preview.gif" alt="PULSE demo preview" width="320" />
   </a>
-</p>
+  <p><sub>Click the preview to open the full demo video.</sub></p>
+</div>
 
-<p align="center">
-  Click the preview to open the full demo video.
-</p>
+## Highlights
 
-## What PULSE Does
-
-- Routes a point-of-care ultrasound image to the correct clinical domain.
-- Runs specialist models across heterogeneous output types:
-  - classification
-  - segmentation
-  - detection
-  - scalar measurement
-- Builds a structured evidence bundle from specialist outputs.
-- Generates clinician-facing structured reports from evidence rather than free-form image-only reasoning.
-- Deploys a local SwiftUI iPhone app with Core ML specialists and optional on-device VQA.
+| Area | Summary |
+| --- | --- |
+| `🧠 Training` | Supervised specialists with an agentic RL-style controller for task scheduling, curriculum adaptation, and recovery |
+| `📦 Compression` | Channel pruning, INT8 post-training quantization, and teacher-student distillation for mobile deployment |
+| `📱 On-device inference` | Local domain routing, specialist execution, report generation, and PDF export inside a SwiftUI iPhone app |
+| `🩺 Clinical outputs` | Classification, segmentation, detection, and scalar measurement across 9 ultrasound domains |
+| `💬 Local reasoning` | Evidence-grounded reporting with optional local multimodal VQA through staged GGUF backends |
 
 ## Scope
 
-PULSE covers 9 ultrasound domains and 19 runtime tasks.
+PULSE covers **9 ultrasound domains** and **19 runtime tasks**.
 
 | Domain | Runtime scope |
 | --- | --- |
@@ -55,7 +71,7 @@ PULSE covers 9 ultrasound domains and 19 runtime tasks.
 ```text
 PULSE/
 ├── app/                              FastAPI app and minimal web client
-├── assets/                           README demo assets
+├── assets/                           README demo and architecture assets
 ├── ios/PULSEOnDevice/                SwiftUI iPhone app and iOS build spec
 ├── pulse/                            Core training, runtime, export, and reporting code
 ├── scripts/                          Curated entrypoints for training, export, runtime, and staging
@@ -68,7 +84,7 @@ PULSE/
 
 ### `pulse/`
 
-This is the main Python package.
+Main Python package for training, runtime orchestration, export, and reporting.
 
 - `pulse/discovery.py`: dataset discovery and patient/case-aware task construction
 - `pulse/trainer.py`: shared supervised training loop
@@ -89,7 +105,7 @@ FastAPI service for local structured inference.
 
 SwiftUI iPhone app for fully local deployment.
 
-- domain routing on-device
+- on-device domain routing
 - specialist inference on-device
 - structured report generation on-device
 - optional local VQA using staged GGUF multimodal assets
@@ -121,7 +137,7 @@ python3 scripts/run_agent_server.py \
 Then open:
 
 - `http://127.0.0.1:8000`
-- API docs: `http://127.0.0.1:8000/api/docs`
+- `http://127.0.0.1:8000/api/docs`
 
 ### 3. Train specialists
 
@@ -229,7 +245,7 @@ See:
 - `scripts/stage_medix_r1_reasoning_assets.py`
 - `scripts/test_medix_r1_output.py`
 
-## Deliberately Excluded From Version Control
+## Excluded From Version Control
 
 This repository does not track:
 
