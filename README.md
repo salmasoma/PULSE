@@ -4,6 +4,12 @@ PULSE is a multi-domain ultrasound intelligence stack spanning supervised specia
 
 This repository is intentionally code-only. It excludes datasets, trained checkpoints, exported Core ML bundles, staged GGUF reasoning models, papers, presentations, reports, and other working artifacts.
 
+## Architecture
+
+![PULSE methodology and deployment architecture](assets/pulse-methodology-architecture.svg)
+
+The pipeline is organized in four phases: multi-domain specialist training with an agentic RL-style controller, TinyML compression and mobile packaging, on-device routing plus structured evidence construction, and grounded report generation with optional local VQA.
+
 ## Demo
 
 <p align="center">
