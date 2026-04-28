@@ -6,7 +6,7 @@ This repository is intentionally code-only. It excludes datasets, trained checkp
 
 ## Architecture
 
-![PULSE methodology and deployment architecture](assets/pulse-methodology-architecture.svg)
+![PULSE methodology and deployment architecture](assets/Architecture.png)
 
 The pipeline is organized in four phases: multi-domain specialist training with an agentic RL-style controller, TinyML compression and mobile packaging, on-device routing plus structured evidence construction, and grounded report generation with optional local VQA.
 
